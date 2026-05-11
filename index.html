@@ -2131,7 +2131,26 @@
     animation: elmeco-shimmer 3s linear infinite;
     pointer-events: none;
   }
+  @keyframes bulb-on {
+    0%,49%     { opacity:0.2; filter: grayscale(1) brightness(0.5); transform:scale(1); }
+    50%,100%   { opacity:1;   filter: grayscale(0) brightness(2) drop-shadow(0 0 8px #ffe066); transform:scale(1.2); }
+  }
+  @keyframes bulb-off {
+    0%,49%     { opacity:1;   filter: grayscale(0) brightness(2) drop-shadow(0 0 8px #ffe066); transform:scale(1.2); }
+    50%,100%   { opacity:0.2; filter: grayscale(1) brightness(0.5); transform:scale(1); }
+  }
+  .elmeco-icon-bulb {
+    display: inline-block;
+    font-size: 18px;
+    animation: bulb-on 1.4s ease-in-out infinite;
+    margin-left: 2px;
+    vertical-align: middle;
+  }
+  .bulb-right {
+    animation: bulb-off 1.4s ease-in-out infinite !important;
+  }
   .elmeco-watermark:hover {
+
     opacity: 1;
     background: rgba(8, 11, 22, 0.97);
     border-color: #e8a020;
@@ -2158,12 +2177,16 @@
   }
   .elmeco-watermark .elmeco-tagline {
     font-family: 'Inter', sans-serif;
-    font-size: 9px;
+    font-size: 7px;
     color: rgba(255,255,255,0.55);
-    letter-spacing: 0.8px;
+    letter-spacing: 0.3px;
     border-left: 1px solid rgba(255,255,255,0.2);
-    padding-left: 12px;
-    line-height: 1.6;
+    padding-left: 8px;
+    line-height: 1.4;
+    display: none;
+  }
+  .elmeco-watermark:hover .elmeco-tagline {
+    display: block;
   }
   @media (max-width: 600px) {
     .elmeco-watermark { bottom: 10px; padding: 8px 16px 8px 14px; gap: 8px; }
@@ -3322,7 +3345,7 @@
       <span class="splash-bolt">⚡</span>
       <span class="splash-elmeco-name">ELMECO</span>
       <span class="splash-bolt">⚡</span>
-      <span class="splash-elmeco-tag">Votre solution en<br>électricité depuis 1980</span>
+      <span class="splash-elmeco-tag">Votre solution en<br>électricité 💡 depuis 1980</span>
     </div>
   </div>
 </div>
@@ -3680,11 +3703,17 @@
     <!-- Crédit -->
     <div style="text-align:center; padding: 6px 0 2px; font-family:'Inter',sans-serif;">
       <div style="font-size:10px; letter-spacing:1.5px; color:rgba(255,255,255,0.28); text-transform:uppercase; margin-bottom:2px;">Une courtoisie de</div>
-      <div style="display:inline-flex; align-items:center; gap:8px; background:rgba(232,160,32,0.08); border:1px solid rgba(232,160,32,0.25); border-radius:6px; padding:4px 14px;">
-        <span style="font-size:14px;">⚡</span>
-        <span style="font-family:'Bebas Neue',sans-serif; font-size:52px; letter-spacing:6px; color:#e8a020;">ELMECO</span>
-        <span style="font-size:14px;">⚡</span>
-        <span style="font-family:'Inter',sans-serif; font-size:8px; color:rgba(255,255,255,0.35); letter-spacing:1px; border-left:1px solid rgba(255,255,255,0.1); padding-left:8px;">Votre solution en électricité depuis 1980</span>
+      <div style="display:inline-flex; flex-direction:column; align-items:center; gap:4px; background:rgba(232,160,32,0.08); border:1px solid rgba(232,160,32,0.25); border-radius:8px; padding:6px 16px;">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <span style="font-size:14px;">⚡</span>
+          <span style="font-family:'Bebas Neue',sans-serif; font-size:52px; letter-spacing:6px; color:#e8a020;">ELMECO</span>
+          <span style="font-size:14px;">⚡</span>
+        </div>
+        <div style="display:flex; align-items:center; gap:6px;">
+          <span class="elmeco-icon-bulb bulb-left">💡</span>
+          <span style="font-family:'Inter',sans-serif; font-size:9px; color:rgba(255,255,255,0.45); letter-spacing:1px;">Votre solution en électricité depuis 1980</span>
+          <span class="elmeco-icon-bulb bulb-right">💡</span>
+        </div>
       </div>
     </div>
     <span class="hero-chevron" onclick="document.getElementById('main-content').scrollIntoView({behavior:'smooth'})">▾</span>
@@ -5975,12 +6004,12 @@ document.querySelectorAll('.filter-btn:not(:first-child)').forEach(btn => {
 </div>
 
 <!-- ─── ELMECO WATERMARK FIXE ─── -->
-<div class="elmeco-watermark" title="Une courtoisie de ELMECO — Votre solution en électricité depuis 1980">
+<div class="elmeco-watermark" title="Une courtoisie de ELMECO — Votre solution en électricité 💡 depuis 1980">
   <span class="elmeco-label">Une courtoisie de</span>
   <span class="elmeco-icon">⚡</span>
   <span class="elmeco-name">ELMECO</span>
   <span class="elmeco-icon">⚡</span>
-  <span class="elmeco-tagline">Votre solution en<br>électricité depuis 1980</span>
+  <span class="elmeco-tagline">Votre solution en<br>électricité 💡 depuis 1980</span>
 </div>
 
 
